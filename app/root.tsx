@@ -6,9 +6,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import type { Route } from "./+types/root";
+
 import "./app.css";
+import { Navbar } from "./components/Navbar"; // ✅ ADD THIS
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,8 +33,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+
+      <body className="bg-white text-gray-800">
+        {/* ⭐ NEW: Navbar visible on all pages */}
+        <Navbar />
+
+        {/* ⭐ NEW: Add padding-top so content does not hide under navbar */}
+        <main className="pt-20">
+          {children}
+        </main>
+
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -62,8 +71,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
+    <main className="pt-20 p-4 container mx-auto">
+      <h1 className="text-2xl font-semibold">{message}</h1>
       <p>{details}</p>
       {stack && (
         <pre className="w-full p-4 overflow-x-auto">
