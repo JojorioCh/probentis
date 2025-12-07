@@ -1,39 +1,41 @@
-import Section from "../components/Section";
 import Hero from "../components/Hero";
+import Section from "../components/Section";
 
 export default function About() {
   return (
-    <div>
-      <Hero
-        title="PROBENTIS"
-        description="A minimally invasive device providing real-time assessment of prostate cancer during biopsy or surgery."
-      />
+    <>
+      <Hero />
 
-      <Section
-        title="The Problem"
-        text={[
-          "90,000 prostatectomies are performed every year in the US.",
-          "During surgery, physicians rely only on their eyes to identify whether cancer remains.",
-          "Confirmation of positive margins only occurs after surgery when samples return from pathology.",
-        ]}
-      />
+      <Section title="The Problem"
+      img="/images/focused-researcher.png">
+        <ul className="list-disc pl-6 space-y-2">
+          <li>90,000 prostatectomies take place every year in the US.</li>
+          <li>Surgeons currently rely on visual inspection to detect remaining cancer.</li>
+          <li>Confirmation only happens after surgery via pathology.</li>
+        </ul>
+      </Section>
 
       <Section
         title="Our Solution"
-        text={[
-          "Probentis is developing a minimally invasive device that provides real-time, in-vivo cancer assessment.",
-          "Inserted during biopsy or surgery, it identifies cancer presence and grades tissue using Gleason and ISUP standards.",
-          "This empowers physicians to make accurate decisions and avoid unnecessary procedures.",
-        ]}
-      />
+        img="/images/glassware.png"
+        reverse
+      >
+        <p>
+          Probentis is developing a minimally invasive Raman spectroscopy device that performs 
+          real-time, in-vivo assessment of prostate tissue to detect the presence of cancer and 
+          grade its severity according to Gleason and ISUP systems.
+        </p>
+      </Section>
+
       <Section
-        title="Current State of Technology"
-        text={[
-          "Uses Raman spectroscopy for cancer detection.",
-          "Built on 7+ years of funded research.",
-          "Backed by MBIE Smart Ideas funding.",
-        ]}
-      />
-    </div>
+        title="State of Technology"
+        img="/images/lab-research.png"
+      >
+        <p>
+          Our platform is backed by 7 years of scientific research, supported by MBIE Smart 
+          Ideas funding, and is advancing toward clinical translation.
+        </p>
+      </Section>
+    </>
   );
 }

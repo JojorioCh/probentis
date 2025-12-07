@@ -41,12 +41,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
 
-      <body className="bg-white text-gray-800">
+      <body className="font-sans bg-white dark:bg-gray-950">
         <Navbar />
 
-        <main className="pt-20">
-          {children}
-        </main>
+        <main className="pt-20">{children}</main>
 
         <ScrollRestoration />
         <Scripts />
