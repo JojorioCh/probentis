@@ -9,7 +9,13 @@ import {
 import type { Route } from "./+types/root";
 
 import "./app.css";
-import { Navbar } from "./components/Navbar"; // ✅ ADD THIS
+import { Navbar } from "./components/Navbar";
+
+// ✅ Default meta for all routes
+export const meta: Route.MetaFunction = () => [
+  { title: "Probentis" }, // default tab title
+  { name: "description", content: "Welcome to Probentis" },
+];
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -30,15 +36,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Meta reads from either the route or the default meta above */}
         <Meta />
         <Links />
       </head>
 
       <body className="bg-white text-gray-800">
-        {/* ⭐ NEW: Navbar visible on all pages */}
         <Navbar />
 
-        {/* ⭐ NEW: Add padding-top so content does not hide under navbar */}
         <main className="pt-20">
           {children}
         </main>
