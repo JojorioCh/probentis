@@ -4,10 +4,10 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  // base: "/probentis/",
+  base: "/probentis/",
   plugins: [
     tailwindcss(),
-    reactRouter({ basename: "/probentis" }),
+    reactRouter(),
     tsconfigPaths(),
   ],
 });
